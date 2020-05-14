@@ -3,9 +3,7 @@
 """
 Kenzie assignment: List2
 """
-# Your name, plus anyone who helped you with this assignment.
-# Give credit where credit is due.
-__author__ = "???"
+__author__ = "Drew Radcliff"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -28,9 +26,13 @@ __author__ = "???"
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
-
+    result = []
+    i = 0
+    for num in nums:
+        if i < 1 or num != result[i-1]:
+            result.append(num)
+            i += 1
+    return result
 
 # E. linear_merge
 # Given two lists sorted in increasing order, create and
@@ -42,10 +44,21 @@ def remove_adjacent(nums):
 # linear time and the two lists are already provided in
 # ascending sorted order.
 
+# this solution was inspired by this method https://www.geeksforgeeks.org/python-combining-two-sorted-lists/
+
 
 def linear_merge(list1, list2):
-    # your code here
-    return
+    i, j = 0, 0
+    result = []
+
+    while i < len(list1) and j < len(list2):
+        if list1[i] < list2[j]:
+            result.append(list1[i])
+            i += 1
+        else:
+            result.append(list2[j])
+            j += 1
+    return result + list1[i:] + list2[j:]
 
 
 # Provided simple test() function used in main() to print
