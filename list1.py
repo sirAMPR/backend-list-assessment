@@ -3,9 +3,8 @@
 """
 Kenzie assignment: List1
 """
-# Your name, plus anyone who helped you with this assignment.
-# Give credit where credit is due.
-__author__ = "???"
+
+__author__ = "Drew Radcliff"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -26,8 +25,11 @@ __author__ = "???"
 
 
 def match_ends(words):
-    # your code here
-    return
+    count = 0
+    for word in words:
+        if len(word) > 1 and word[0] == word[-1]:
+            count += 1
+    return count
 
 
 # B. front_x
@@ -42,8 +44,15 @@ def match_ends(words):
 
 
 def front_x(words):
-    # your code here
-    return
+    words.sort()
+    list_1 = []
+    list_2 = []
+    for word in words:
+        if word.startswith('x'):
+            list_1.append(word)
+        else:
+            list_2.append(word)
+    return list_1 + list_2
 
 
 # C. sort_last
@@ -56,8 +65,7 @@ def front_x(words):
 
 
 def sort_last(tuples):
-    # your code here
-    return
+    return sorted(tuples, key=lambda e: e[-1])
 
 
 # Provided simple test() function used in main() to print
